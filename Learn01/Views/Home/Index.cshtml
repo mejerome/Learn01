@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Learn01.Models.Bid>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <b> Search Option: </b> @Html.RadioButton("option", "BankName") <text>Bank Name</text> @Html.RadioButton("option", "FwdDate") <text>FwdDate</text>
+    @Html.TextBox("search") <input type="submit"
+                                   name="submit"
+                                   value="Search" />}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FwdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FwdRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountBid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CouponAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BatchRef)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FwdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FwdRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountBid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatchRef)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

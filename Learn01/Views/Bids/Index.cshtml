@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Learn01.Models.Bid>
+
+@{
+    ViewBag.Title = "Upload Page";
+}
+
+<h2>Index</h2>
+
+<h4>Add Bids via Excel</h4>
+<hr />
+@using (Html.BeginForm("UploadExcel", "User", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return myFunction()" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="control-label col-md-2">Download Format:</div>
+            <div class="col-md-10">
+                <a href="/User/DownloadExcel/"><img src="~/Content/" width="25" height="25" title="Download Excel format" alt="excel" /></a>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <div class="control-label col-md-2">Excel:</div>
+            <div class="col-md-10">
+                <input type="file" id="FileUpload" name="FileUpload" class="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
+
+            </div>
+        </div>
+    </div>
+}  
